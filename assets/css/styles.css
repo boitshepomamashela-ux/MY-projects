@@ -57,3 +57,8 @@ h1 em,h2 em{color:var(--wine)}.closing-cta h2 em{color:var(--peach)}
 .service-card>.card-view,.media-card>.card-view{margin-top:auto;flex-shrink:0}
 .view-card:hover .card-view,.view-card:focus-visible .card-view{background:var(--wine);color:#fff;transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.view-card .card-view{transition:none;transform:none}}
+
+/* Fixed vector artwork avoids device-dependent text/emoji icon rendering. */
+.site-icon{display:inline-block;width:1em;height:1em;vertical-align:-.14em;flex-shrink:0;overflow:visible}
+.brand-mark .site-icon,.service-icon .site-icon,.pill-flower .site-icon,.mini-flower .site-icon,.little-spark .site-icon{vertical-align:0}
+.social-icon{flex-shrink:0}
