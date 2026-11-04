@@ -30,6 +30,30 @@ h1 em,h2 em{color:var(--wine)}.closing-cta h2 em{color:var(--peach)}
 .brand-mark,.service-icon,.pill-flower,.little-spark{color:var(--teal)}
 .thumbnail-card{display:block;overflow:hidden;border:1px solid var(--line);border-radius:11px;background:var(--cream);transition:transform .22s,box-shadow .22s}
 .thumbnail-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.thumbnail-card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:var(--cream)}
+.thumbnail-card img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--cream)}
 .social-icon{width:21px;height:21px;object-fit:contain}.social-badges a:hover{background:var(--peach)}
 .event-gallery .thumbnail-card img{aspect-ratio:3/4}
+
+/* Crop photographs inside the original image frames. Logos retain contain. */
+.thumbnail-card img{object-position:center center}
+.subhero-art img,.split-feature-image img{display:block}
+.subhero-art img[src$="events/5.jpg"]{object-position:62% 42%}
+.subhero-art img[src$="proof/4.jpg"]{object-position:50% 22%}
+.subhero-art img[src$="proof/8.jpg"]{object-position:50% 28%}
+.split-feature-image img[src$="events/5.jpg"]{object-position:62% 42%}
+.media-hero-art img[src$="proof/3.jpg"]{object-position:50% 32%}
+
+/* Keep the header contact action visible alongside the mobile menu. */
+.header-actions>.header-contact{display:inline-flex;white-space:nowrap}
+@media(max-width:600px){.header-actions{gap:10px}.header-actions>.header-contact{min-height:42px;padding:9px 13px;gap:8px;font-size:12px}}
+@media(max-width:380px){.header-actions>.header-contact{padding:9px 10px;gap:5px}.header-inner{gap:8px}}
+.split-feature-image img[src$="proof/1.jpg"]{object-position:50% 25%}
+
+/* A visible action inside each linked card; the existing anchor remains the click target. */
+.view-card{position:relative}
+.card-view{display:inline-flex;align-items:center;justify-content:center;gap:16px;width:max-content;max-width:calc(100% - 28px);min-height:38px;padding:8px 15px;border:1px solid rgba(23,108,106,.18);border-radius:7px;background:#fff;color:var(--wine-dark);font-size:12px;font-weight:800;line-height:1.2;box-shadow:0 3px 14px rgba(0,0,0,.14);pointer-events:none;transition:background .2s,color .2s,transform .2s}
+.thumbnail-card>.card-view,.moment-photo>.card-view{position:absolute;left:14px;bottom:14px;z-index:2}
+.moment-photo{position:relative}
+.service-card>.card-view,.media-card>.card-view{margin-top:auto;flex-shrink:0}
+.view-card:hover .card-view,.view-card:focus-visible .card-view{background:var(--wine);color:#fff;transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.view-card .card-view{transition:none;transform:none}}
